@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="magicpig.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="magicpig.Perspective"
+            id="magic-pig.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Message"
+            allowMultiple="true"
+            icon="icons/sample2.gif"
+            class="magicpig.View"
+            id="magic-pig.view">
+      </view>
+      <view
+            name="Mailboxes"
+            allowMultiple="true"
+            icon="icons/sample3.gif"
+            class="magicpig.NavigationView"
+            id="magic-pig.navigationView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Mail"
+            id="magic-pig.category">
+      </category>
+      <command
+            name="Open Mailbox"
+            description="Opens a mailbox"
+            categoryId="magic-pig.category"
+            id="magic-pig.open">
+      </command>
+      <command
+            name="Open Message Dialog"
+            description="Open a message dialog"
+            categoryId="magic-pig.category"
+            id="magic-pig.openMessage">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="magic-pig.open"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+2">
+      </key>
+      <key
+            commandId="magic-pig.openMessage"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+3">
+      </key>
+      <key
+            commandId="org.eclipse.ui.file.exit"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+X">
+      </key>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="magic-pig.application"
+            name="RCP Product">
+         <property
+               name="aboutText"
+               value="RCP Mail template created by PDE">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/sample2.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="product_lg.gif">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
